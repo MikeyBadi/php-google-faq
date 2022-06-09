@@ -96,6 +96,28 @@
         </p>
       '
     ]
+  ];
+  $navbar =[
+    [
+      'txt'=> 'Overview',
+      'active'=> false
+    ],
+    [
+      'txt'=> 'Privacy Policy',
+      'active'=> false
+    ],
+    [
+      'txt'=> 'Terms of Service',
+      'active'=> false
+    ],
+    [
+      'txt'=> 'Technologies',
+      'active'=> false
+    ],
+    [
+      'txt'=> 'FAQ',
+      'active'=> true
+    ],
   ]
 
 ?>
@@ -111,32 +133,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- BS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
   <title>Document</title>
 </head>
 <body>
   <header>
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between logoSec">
       <div>
         <img src="./assets/img/googlelogo_clr_74x24px.svg" alt="GOOGLE">
-        <span>Privacy & Terms</span>
+        <span class="txt-ggl">Privacy & Terms</span>
       </div>
       <div>
         <i class="fa-solid fa-braille"></i>
-        <img class="w-20" src="./assets/img/circle_PNG2.png" alt="img">
+        <img class="profPic" src="./assets/img/circle_PNG2.png" alt="img">
       </div>
     </div>
     <div>
-      <ul>
-        <li>Overview</li>
-        <li>Privacy Policy</li>
-        <li>Terms of Service</li>
-        <li>Tecnologies</li>
-        <li>FAQ</li>
+      <ul class="navMen d-flex">
+        <?php foreach($navbar as $link):?>
+          <li class="<?php echo $link['active']? 'active': '';?>">
+            <a href="#">
+              <?php echo $link['txt']?>
+            </a>
+          </li>
+        <?php endforeach?>
       </ul>
     </div>
   </header>
-  <main>
+  <main class="">
     <div class="container">
       <?php foreach($faq as $section):?>
       <div>
@@ -146,5 +173,25 @@
       <?php endforeach?>
     </div>
   </main>
+  <footer>
+    <div class="contFoot d-flex justify-content-between">
+      <div class="footerLinks">
+        <a href="">Google</a>
+        <span class="dotSmall">•</span>
+        <a href="">About Google</a>
+        <span class="dotSmall">•</span>
+        <a href="">Privacy</a>
+        <span class="dotSmall">•</span>
+        <a href="">Terms</a>
+      </div>
+      <div>
+        <i class="fa-solid fa-globe"></i>
+        <select name="Languages" id="">
+          <option value="English">English</option>
+          <option value="Italian">Italian</option>
+        </select>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
